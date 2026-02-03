@@ -15,8 +15,6 @@ module mux8to1_dataflow (
 endmodule
 // test bench 
 
-
-
 module mux8to1_dataflow_tb;
 
     reg d0,d1,d2,d3,d4,d5,d6,d7;
@@ -33,11 +31,7 @@ module mux8to1_dataflow_tb;
 
     initial begin
         $monitor("Time=%0t | s2=%b s1=%b s0=%b | y=%b", $time, s2,s1,s0,y);
-
-        // Example: only one input high at a time
-        d0=1; d1=0; d2=0; d3=0; d4=0; d5=0; d6=0; d7=0;
-
-        // Test all select combinations
+        d0=1; d1=0; d2=0; d3=0; d4=0; d5=0; d6=0; d7=0;  
         s2=0; s1=0; s0=0; #10;
         s2=0; s1=0; s0=1; #10;
         s2=0; s1=1; s0=0; #10;
