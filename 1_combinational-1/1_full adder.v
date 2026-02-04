@@ -1,3 +1,4 @@
+// full adder structrural modelling 
 module fa_struc(a,b,cin,s,cout);
   input a,b,cin;
   output s,cout;
