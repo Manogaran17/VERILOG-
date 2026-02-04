@@ -1,4 +1,4 @@
-module full_adder_dataflow(a,b,cin,sum,cout);
+module full_adder_behav(a,b,cin,sum,cout);
   input a,b,cin;
   output reg sum,cout;
   always@(*)
@@ -12,7 +12,7 @@ endmodule
 module hd_tb;
   reg a,b,cin;
   reg sum,cout;
-  full_adder_dataflow dut(a,b,cin,sum,cout);
+  full_adder_behav dut(a,b,cin,sum,cout);
   initial 
     begin 
       $monitor("Time=%0t,a=%b b=%b,cin=%b,sum=%b,cout=%b", $time, a, b, cin, sum, cout);
