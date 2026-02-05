@@ -32,3 +32,4 @@ module hd_tb;
     
       $finish;
     end
+endmodule 
