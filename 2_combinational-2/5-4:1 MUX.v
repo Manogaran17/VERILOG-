@@ -24,7 +24,7 @@ module mux4to1_dataflow_tb;
                           .s0(s0),.s1(s1),.y(y));
 
     initial begin
-        $monitor("Time=%0t | s1=%b s0=%b | y=%b", $time, s1, s0, y);
+        $monitor("Time=%0t,s1=%b s0=%b,y=%b", $time, s1, s0, y);
 
         // Example inputs
         d0=1; d1=1; d2=1; d3=1;
