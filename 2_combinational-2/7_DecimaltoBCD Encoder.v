@@ -1,3 +1,5 @@
+
+// structural modelling 
 module decimaltoBCD_Encoder(D0,D1,D2,D3,D4,D5,D6,D7,D8,D9,B0,B1,B2,B3);
   input D0,D1,D2,D3,D4,D5,D6,D7,D8,D9;
   output B0,B1,B2,B3;
@@ -7,6 +9,30 @@ module decimaltoBCD_Encoder(D0,D1,D2,D3,D4,D5,D6,D7,D8,D9,B0,B1,B2,B3);
   or g3(B2,D4,D5,D6,D7);
   or g4(B3,D8,D9);
 endmodule 
+// dataflow modelling 
+module decimaltoBCD_Encoderdataflow(D0,D1,D2,D3,D4,D5,D6,D7,D8,D9,B0,B1,B2,B3);
+  input D0,D1,D2,D3,D4,D5,D6,D7,D8,D9;
+  output B0,B1,B2,B3;
+  
+  assign B0 = (D1|D3|D5|D7|D9);
+  assign B1 = (D2|D3|D6|D7);
+  assign B2 = (D4|D5|D6|D7);
+  assign B3 = (D8|D9);
+endmodule
+// behavioural modelling 
+
+decimaltoBCD_Encoderbehav(D0,D1,D2,D3,D4,D5,D6,D7,D8,D9,B0,B1,B2,B3);
+  input D0,D1,D2,D3,D4,D5,D6,D7,D8,D9;
+  output reg B0,B1,B2,B3;
+  always@(*)
+    begin
+  
+  B0 = (D1|D3|D5|D7|D9);
+  B1 = (D2|D3|D6|D7);
+  B2 = (D4|D5|D6|D7);
+  B3 = (D8|D9);
+    end 
+endmodule
 
 // test bench 
 module encoder_tb;
