@@ -1,3 +1,12 @@
 # VERILOG-
 1. Logic gates
-2. 
+a. primitive gates
+   and
+   or
+   not
+   nand
+   nor
+   xor
+   xnor
+b. transistor level implementation 
+
