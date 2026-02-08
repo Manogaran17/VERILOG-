@@ -1,6 +1,5 @@
 # VERILOG-
 1. Logic gates
-  - primitive gates
   * and
   * or
   * not
