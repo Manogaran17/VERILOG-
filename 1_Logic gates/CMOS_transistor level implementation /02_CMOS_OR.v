@@ -1,5 +1,5 @@
 // Code your design here
-module CMOS_and(a,b,w1);
+module CMOS_or(a,b,w1);
   input a,b;
   output w1;
   
@@ -18,15 +18,15 @@ endmodule
 
 // Code your testbench here
 // or browse Examples
-module CMOS_tb;
+module CMOS_ortb;
   reg a,b;
   wire w1;
   
-  CMOS_and dut(a,b,w1);
+  CMOS_or dut(a,b,w1);
   initial 
     begin 
       $dumpfile("cmos.vcd");
-      $dumpvars(1,CMOS_tb);
+      $dumpvars(1,CMOS_ortb);
     end 
   
   initial 
