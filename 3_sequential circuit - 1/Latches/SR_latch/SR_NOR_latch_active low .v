@@ -1,12 +1,12 @@
-// Code your design here
-module sr_Latch(s,r,clk,q);
-  input s,r,clk;
+module sr_Latch(s,r,clk,reset,q);
+  input s,r,clk,reset;
   output reg q;
   
   always@(clk or s or r)
     begin
-      q=1'b0;
-      if(!clk)  // active low
+      if (reset)
+        q<=0;
+      else if(!clk)
       case({s,r})
         2'b00: q <=q;
         2'b01: q <=0;
@@ -15,9 +15,8 @@ module sr_Latch(s,r,clk,q);
         default :q <=q; 
       endcase
     end
-endmodule
- module sr_Latch_tb;
-   reg s,r,clk;
+  module sr_Latch_tb;
+   reg s,r,clk,reset;
    wire q;
      
     initial begin
@@ -27,16 +26,19 @@ endmodule
      initial
     begin
     $dumpfile("dump.vcd");
-      $dumpvars(0, sr_Latch_tb);
+      $dumpvars(1, sr_Latch_tb);
   end 
-   sr_Latch dut(s,r,clk,q);
- initial begin 
-       
-     s = 0; r = 0;
-    #12 s = 0; r = 1;
-    #18 s = 1; r = 0;
-    #12 s = 1; r = 1;
-    #5  s = 0; r = 0;
+   sr_Latch dut(s,r,clk,reset,q);
+ initial begin
+   
+      reset=1;s=0;r=0;
+   #6 reset=0;
+      
+    #5 s = 0; r = 0;
+    #15 s = 1; r = 0;
+    #5 s = 1; r = 0;
+    #5 s = 0; r = 1;
+   #7 s = 1; r = 1;
    
     #10 $finish;
       
