@@ -1,26 +1,25 @@
+// Code your design here
 module t_latch (
     input  t,
     input  clk,
+    input  rst,
     output reg q
 );
 
-initial q = 0;
-
 always @(*) begin
-    if (clk) begin
-        if (t)
-            q = ~q;
-    end
+    if (rst)
+        q = 1'b0;
+    else if (clk && t)
+        q = ~q;
 end
 
 endmodule
-// test bench 
 module t_latch_tb;
 
-reg t, clk;
+reg t, clk, rst;
 wire q;
 
-t_latch dut(t, clk, q);
+t_latch dut(t, clk, rst, q);
 
 initial begin
     clk = 0;
@@ -33,7 +32,10 @@ initial begin
 end
 
 initial begin
-    t = 0;       
+    rst = 1;
+    t   = 0;
+
+    #12 rst = 0;
 
     #12 t = 1; 
     #18 t = 0; 
@@ -41,6 +43,9 @@ initial begin
     #12 t = 1; 
     #18 t = 0; 
     #12 t = 1;
+
+    #20 rst = 1;
+    #10 rst = 0;
 
     #20 $finish;
 end
