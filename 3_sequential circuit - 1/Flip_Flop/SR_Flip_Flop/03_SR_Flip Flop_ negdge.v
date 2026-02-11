@@ -1,9 +1,12 @@
-
-module sr_flipflop(s,r,clk,q);
-  input s,r,clk;
+module sr_flipflop(s,r,clk,rst,q);
+  input s,r,clk,rst;
   output reg q;  
   always@(negedge clk)
     begin
+      if(rst)
+        q<=0;
+      else
+        begin
       case({s,r})
         2'b00: q <=q;
         2'b01: q <=0;
@@ -12,30 +15,35 @@ module sr_flipflop(s,r,clk,q);
         default: q<=0;
       endcase
     end
+    end
 endmodule
+
 // Code your testbench here 
  module sr_flipflop_tb;
-   reg s,r,clk;
+   reg s,r,clk,rst;
    wire q;
      
     initial begin
-    clk = 1;
+    clk = 0;
     forever #5 clk = ~clk;
   end  
      initial
     begin
-    $dumpfile("dump.vcd");
-    $dumpvars(0, sr_flipflop_tb);
+      $dumpfile("sr_flipflop.vcd");
+      $dumpvars(1, sr_flipflop_tb);
   end 
-   sr_flipflop dut(s,r,clk,q);
+  sr_flipflop dut(s,r,clk,rst,q);
  initial begin 
-   $monitor("time=%t,s=%b,r=%b,clk=%b,q=%b",$time,s,r,clk,q);
-     
+   $monitor("time=%t,s=%b,r=%b,clk=%b,rst=%b,q=%b",$time,s,r,clk,rst,q);
+     rst=1;
+   s=1;r=0;
+   #5 rst=0;
      s = 1; r = 0;
      #12 s = 0; r = 1;
+     #5rst=1;s=1;r=1;
+   #10 rst=0;
     #18 s = 1; r = 0;
      #12 s = 1; r = 1;
-   
     #12 s = 0; r = 1;
     #18 s = 1; r = 0;
     #12 s = 1; r = 1;
