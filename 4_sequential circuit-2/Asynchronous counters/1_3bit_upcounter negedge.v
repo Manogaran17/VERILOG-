@@ -3,7 +3,7 @@ module jk_ff(j,k,clk,rst,q);
   input j,k,clk,rst;
   output reg q;
   
-  always@(negedge clk )
+  always@(negedge clk or posedge rst)
     begin 
       if(rst)
         q<=0;
@@ -29,6 +29,7 @@ module jk_ff(j,k,clk,rst,q);
         jk_ff m2(j[1],k[1],q[0],rst,q[1]);
         jk_ff m3(j[2],k[2],q[1],rst,q[2]);
       endmodule 
+        
         // test bench 
 // Code your testbench here
 // or browse Examples
