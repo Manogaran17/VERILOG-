@@ -29,4 +29,36 @@ module jk_ff(j,k,clk,rst,q);
         jk_ff m2(j[1],k[1],q[0],rst,q[1]);
         jk_ff m3(j[2],k[2],q[1],rst,q[2]);
       endmodule 
+// test bench 
+module asyn_counter_tb;
+  reg clk,rst;
+  reg [2:0]j,k;
+  wire [2:0]q;
+  
+  Asyn_counter_3bit dut(j,k,clk,rst,q);
+  initial
+    begin 
+      clk=0;
+      forever #5 clk = ~clk;
+    end
+   initial 
+        begin
+          $dumpfile("count.vcd");
+          $dumpvars(0,asyn_counter_tb);
+        end 
+  initial 
+    begin
+      $monitor("time=%0t,clk=%b,rst=%b,q=%b",$time,clk,rst,q);
+    
+      j[0]=1;k[0]=1;
+      j[1]=1;k[1]=1;
+      j[2]=1;k[2]=1;
+      rst=1;
+      #10 rst=0;
+      #80$finish;
+     
+    end 
+          
+      endmodule 
+      
         
