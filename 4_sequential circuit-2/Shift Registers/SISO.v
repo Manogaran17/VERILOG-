@@ -13,7 +13,7 @@ module shift_register(s_in,clk,rst,s_out);
   assign s_out = regis[3];
 endmodule 
 
-  module shift_register_tb;
+ module shift_register_tb;
   reg s_in,clk,rst;
   reg[ 3:0]regis;
   wire s_out;
@@ -37,7 +37,12 @@ endmodule
         s_in = 0; #10;
         s_in = 1; #10;
         s_in = 1; #10;  
+        s_in = 1; #10;
+        s_in = 1; #10;
+        s_in = 0; #10;
+        s_in = 1; #10;
         s_in = 0; #40;
+      
       
       #70$finish;
     end
