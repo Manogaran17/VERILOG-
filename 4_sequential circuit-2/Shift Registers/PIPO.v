@@ -2,8 +2,6 @@ module pipo_shift_register(p_in,clk,rst,p_out);
     input clk ,rst;
   input [3:0]p_in;
   output reg [3:0]p_out;
-
-
     always @(posedge clk) begin
         if (rst)
             p_out <= 4'b0000;
