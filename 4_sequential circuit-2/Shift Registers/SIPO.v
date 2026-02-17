@@ -13,16 +13,7 @@ module shift_register_SIPO(s_in,clk,rst,p_out);
   assign p_out = regis[3:0];
 endmodule 
 
-
-
-
-// Code your testbench here
-// or browse Examples
-
-
-// Code your testbench here
-// or browse Examples
-
+// Code your testbench 
 
  module shift_register_tb;
   reg s_in,clk,rst;
