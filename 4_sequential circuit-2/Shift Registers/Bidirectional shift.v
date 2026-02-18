@@ -31,6 +31,53 @@ module bidirectional_shift(clk,rst,q,sin,sout,m);
     
 endmodule   
   
+  // test bench 
+// Code your testbench here
+// or browse Examples
+
+module bidirectionalshift_tb;
+  reg clk,rst,sin,m;
+  wire [3:0]q;
+  wire sout;
   
+  initial
+    begin
+      clk=0;
+     forever #5 clk = ~clk;
+    end 
+  
+  bidirectional_shift dut(clk,rst,q,sin,sout,m);
+  initial 
+    begin 
+      $monitor("time=%0t,clk=%b,rst=%b,m=%b,sin=%b,sout=%b",$time,clk,rst,m,sin,sout);
+      
+
+        rst = 1; sin = 0; m = 0;
+        #10 rst = 0;
+
+       
+        m = 0; 
+        sin = 1; #10;
+        sin = 0; #10;
+        sin = 1; #10;
+        sin = 1; #10;
+        sin = 0; #10;
+
+       
+        m = 1;
+        sin = 1; #10;
+        sin = 0; #10;
+        sin = 1; #10;
+        sin = 0; #10;
+
+        #170$finish;
+    end
+  initial 
+    begin 
+      $dumpfile("shift.vcd");
+      $dumpvars(1,bidirectionalshift_tb);
+    end 
+endmodule 
+
   
   
