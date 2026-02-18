@@ -50,21 +50,16 @@ module bidirectionalshift_tb;
   initial 
     begin 
       $monitor("time=%0t,clk=%b,rst=%b,m=%b,sin=%b,sout=%b",$time,clk,rst,m,sin,sout);
-      
 
         rst = 1; sin = 0; m = 0;
-        #10 rst = 0;
-
-       
-        m = 0; 
+        #10 rst = 0;    
+        m = 0; // left shift 
         sin = 1; #10;
         sin = 0; #10;
         sin = 1; #10;
         sin = 1; #10;
         sin = 0; #10;
-
-       
-        m = 1;
+        m = 1; // right shift 
         sin = 1; #10;
         sin = 0; #10;
         sin = 1; #10;
