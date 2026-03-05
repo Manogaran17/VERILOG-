@@ -15,25 +15,29 @@ module FIFO_syn(datain,dataout,clk,rst,full,empty,we,re);
         begin
         wrpt<=0;
         rdpt<=0;
+        dataout<=0;
         end
       else
         begin
        if(we&&!full) 
         begin
-          mem[wrpt[2:0]]<=datain;
+          mem[wrpt[2:0]]<=datain;   
           wrpt<=wrpt+1;
         end 
-      else if(re&&!empty)
+          else
+            wrpt<=wrpt;
+       if(re&&!empty)
         begin
           dataout<=mem[rdpt[2:0]];
            rdpt<=rdpt+1;
         end 
+          else
+            rdpt<=rdpt;
     end
     end
   assign full = ((wrpt[3]!=rdpt[3])&&(wrpt[2:0]==rdpt[2:0]));
   assign empty = (wrpt==rdpt);
 endmodule 
-
 
 module fifo_syn_tb;
   
@@ -55,17 +59,21 @@ module fifo_syn_tb;
       $monitor("time=%0t datain=%b dataout=%b clk=%b rst=%b full=%b empty=%b we=%b re=%b wrpt=%0d rdpt=%0d",
          $time,datain,dataout,clk,rst,full,empty,we,re,dut.wrpt,dut.rdpt);
 
-      rst=1; datain=0; we=1; re=0;datain=1;
+      rst=1; datain=0; we=1; re=0;datain=5;
 
       #12 rst=0;
+
       // write operation
-      #10 datain=2;
-      #10 datain=2;re=1;
-      #10 datain=3;
-      #10 datain=4;
-      #10 datain=5;
-      #10 datain=6;
-      #10 datain=7;
+      #10 datain=6;re=1;
+      #10 datain=7;re=1;
+      #10 datain=8;
+      #10 datain=9;re=0;
+      #10 datain=10;
+      #10 datain=11;
+      #10 datain=12;
+      #10 datain=13;
+      #10 datain=14;
+      #10 datain=15;
       
       // read operation
       #10 re=1; we=0;
@@ -85,4 +93,6 @@ module fifo_syn_tb;
     end 
 
 endmodule
-
+  
+  
+  
