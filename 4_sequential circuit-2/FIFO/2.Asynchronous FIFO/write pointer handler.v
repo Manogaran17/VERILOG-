@@ -27,4 +27,7 @@
                 full<=full1;
                 end 
             end 
+        assign full1 = (gwr_ptr_nxt == {~(grd_ptrsyn[ptr_width:ptr_width-1]),(grd_ptrsyn[ptr_width-2:0])});
+              
+        endmodule 
           
