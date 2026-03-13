@@ -19,4 +19,4 @@ module ha_tb;
       a=1;b=1;#10;
       $finish;
     end
-endmodule
+endmodule 
