@@ -13,7 +13,7 @@ module mux8to1_dataflow (
                (d6 &  s2 &  s1 & ~s0) |
                (d7 &  s2 &  s1 &  s0);
 endmodule
-// test bench 
+// test be
 
 module mux8to1_dataflow_tb;
 
