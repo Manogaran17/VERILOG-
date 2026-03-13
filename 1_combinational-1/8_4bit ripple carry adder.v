@@ -25,8 +25,6 @@ module ripple_carry_adder_4bit (
     fulladder_dataflow FA2 (.a(a[2]), .b(b[2]), .cin(c2),  .sum(sum[2]), .cout(c3));
     fulladder_dataflow FA3 (.a(a[3]), .b(b[3]), .cin(c3),  .sum(sum[3]), .cout(cout));
 endmodule
-
-
 // test bench 
 
 module rca_4bit_tb;
