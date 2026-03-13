@@ -22,7 +22,7 @@ module demux1to8_struct (
     and g10(y7, d, s2, s1, s0);
 
 endmodule
-// test bench 
+// test b
 module demux1to8_struct_tb;
     reg d;
     reg s0, s1, s2;
