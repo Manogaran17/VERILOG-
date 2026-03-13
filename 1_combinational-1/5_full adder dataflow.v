@@ -5,7 +5,6 @@ module full_adder_dataflow(a,b,cin,sum,cout);
   assign cout = (a&b)|cin&(a^b);
 endmodule 
 
-// test b
 
 module hd_tb;
   reg a,b,cin;
