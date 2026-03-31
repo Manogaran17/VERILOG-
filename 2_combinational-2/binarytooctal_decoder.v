@@ -38,5 +38,5 @@ module binarytoOctal_decoder_tb;
           i=k;
              #10;
         end 
-    end
+   end
 endmodule 
