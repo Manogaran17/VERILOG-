@@ -71,7 +71,3 @@ module single_port_tb;
     end 
 endmodule 
   
-  
-  
-  
-  
