@@ -11,7 +11,6 @@ module octaltobinary_behav(D0,D1,D2,D3,D4,D5,D6,D7,B0,B1,B2);
  
     end 
 endmodule
-
 // Code your testbench here
 
 module encoder_tb;
