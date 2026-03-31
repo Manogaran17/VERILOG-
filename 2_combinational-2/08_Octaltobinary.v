@@ -22,7 +22,7 @@ module encoder_tb;
     begin 
       $monitor("Time=%0t,Inputs=%b%b%b%b%b%b%b%b,binary=%b%b%b"
                   ,$time,D7,D6,D5,D4,D3,D2,D1,D0,B2,B1,B0);
-    
+  
 
         #10 D0=1; #10 D0=0;
         #10 D1=1; #10 D1=0;
