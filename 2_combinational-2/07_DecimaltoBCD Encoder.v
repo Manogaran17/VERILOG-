@@ -62,5 +62,3 @@ module encoder_tb;
     end
 
 endmodule
-
-  
