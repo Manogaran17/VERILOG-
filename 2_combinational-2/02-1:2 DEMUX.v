@@ -7,8 +7,6 @@ module demux1to2_dataflow (d,s,y0,y1);
 endmodule
 
 // test bench 
-
-
 module demux1to2_dataflow_tb;
     reg d, s;
     wire y0, y1;
