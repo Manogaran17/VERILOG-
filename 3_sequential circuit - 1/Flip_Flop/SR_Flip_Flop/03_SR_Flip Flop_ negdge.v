@@ -22,7 +22,7 @@ endmodule
  module sr_flipflop_tb;
    reg s,r,clk,rst;
    wire q;
-     
+    
     initial begin
     clk = 0;
     forever #5 clk = ~clk;
