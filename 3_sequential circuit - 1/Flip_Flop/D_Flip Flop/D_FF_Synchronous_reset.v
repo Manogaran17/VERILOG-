@@ -3,8 +3,6 @@
 module dff_sync (d,clk,syn_reset,q);
     input d,clk,syn_reset;
     output reg q;
-
-
   always @(posedge clk )
     begin
     if (syn_reset)
