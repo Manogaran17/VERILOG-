@@ -2,8 +2,6 @@
 module dff_async (d,clk,asyn_reset,q);
     input d,clk,asyn_reset;
     output reg q;
-
-
   always @(posedge clk or posedge asyn_reset)
     begin
     if (asyn_reset)
