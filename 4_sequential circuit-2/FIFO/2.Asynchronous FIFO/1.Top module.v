@@ -1,4 +1,4 @@
-     
+   
   module asyn_fifo(
   input wclk,rclk,we,re,
   input wrst,rrst,
@@ -60,11 +60,4 @@
     .empty(empty)
   );
     
-  endmodule 
-  
-            
-            
-  
-  
-  
-  
+  endmodule
