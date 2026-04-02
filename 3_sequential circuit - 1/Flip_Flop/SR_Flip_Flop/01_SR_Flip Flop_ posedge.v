@@ -29,7 +29,7 @@ endmodule
    sr_flipflop dut(s,r,clk,q);
  initial begin 
    $monitor("time=%t,s=%b,r=%b,clk=%b,q=%b",$time,s,r,clk,q);
-     
+    
      s = 1; r = 0;
      #12 s = 0; r = 1;
     #18 s = 1; r = 0;
