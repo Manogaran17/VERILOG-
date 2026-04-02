@@ -1,7 +1,7 @@
 module jk_ff(j,k,clk,rst,q);
   input j,k,clk,rst;
   output reg q;
-  
+
   always@(negedge clk or posedge rst)
     begin 
       if(rst)
