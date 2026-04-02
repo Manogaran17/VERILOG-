@@ -2,7 +2,7 @@
 module jk_flipflop(j,k,clk,q);
   input j,k,clk;
   output reg q;
-  
+
   always@(posedge clk)
     begin
       case({j,k})
