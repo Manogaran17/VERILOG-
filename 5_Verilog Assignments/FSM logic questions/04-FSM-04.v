@@ -1,4 +1,8 @@
-// Code your design here
+/*The purpose of this lab is to build a Binary-to-BCD converter using the double
+dabble algorithm (aka the shift-add-3 algorithm). You will only utilize
+combinational circuit components, verify the functionality of the converter using
+a testbench*/
+============================================================================================================
 
 module binarytobcd_fsm(
 
