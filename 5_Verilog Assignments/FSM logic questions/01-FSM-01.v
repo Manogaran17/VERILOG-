@@ -97,4 +97,3 @@ module fsm_tb;
     end 
   
 endmodule 
-    
