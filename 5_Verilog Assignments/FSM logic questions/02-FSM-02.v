@@ -2,7 +2,6 @@
 aggregate serial binary input is divisible by 5, we first need to understand the
 problem and then translate it into Verilog code.*/
 
-// Code your design here
 module fsm_divby5(
   
   input x,rst,clk,
