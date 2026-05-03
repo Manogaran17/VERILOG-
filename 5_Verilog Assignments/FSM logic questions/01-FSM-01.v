@@ -1,4 +1,3 @@
-// Code your design here
 
 /* 1. Design a finite state machine that has an input x and output y. The output should
 be asserted whenever x = 1 or x = 0 for three consecutive clock pulses. In other
