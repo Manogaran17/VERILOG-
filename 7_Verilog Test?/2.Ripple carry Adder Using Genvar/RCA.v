@@ -7,7 +7,7 @@ module adder(a,b,sum,cin,cout);
   wire [4:0]carry;
   
   assign carry[0]=cin;
-  
+
   genvar i;
   
   generate
