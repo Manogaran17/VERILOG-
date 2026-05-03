@@ -3,7 +3,6 @@
 be asserted whenever x = 1 or x = 0 for three consecutive clock pulses. In other
 words, the FSM should detect the sequences 111 or 000. Overlapping sequences
 // are allowed, so a sequence of four or five 0s or 1s should also output 1*/
-
 module fsm(
   input x,clk,rst,
   output reg y
