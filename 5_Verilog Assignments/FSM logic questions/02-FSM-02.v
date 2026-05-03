@@ -7,7 +7,6 @@ module fsm_divby5(
   input x,rst,clk,
   output reg y
  
-  
 );
   
   localparam [2:0] s0=0,s1=1,s2=2,s3=3,s4=4;
