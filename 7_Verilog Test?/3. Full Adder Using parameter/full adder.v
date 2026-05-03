@@ -63,8 +63,7 @@ module RCA_tb;
       $strobe("time=%0t,a=%b,b=%b,cin=%b,sum=%b,cout=%b",$time,a,b,cin,sum,cout);
       #10 a=14;b=2;cin=1;
       $strobe("time=%0t,a=%b,b=%b,cin=%b,sum=%b,cout=%b",$time,a,b,cin,sum,cout);
-      
-      
+    
       #30$finish;
     end 
   initial 
