@@ -34,5 +34,3 @@ module tb_diamond;
     end
 
 endmodule
-
-       
